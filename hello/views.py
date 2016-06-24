@@ -20,7 +20,13 @@ def index(request):
     soup = BeautifulSoup()
 
     years = get_years_from_homepage()
-    return HttpResponse('Hello from Python! '+str(years))
+    for year in years:
+        new_a_tag = soup.new_tag("a", href=year)
+        new_a_tag.string = year
+        soup.append(new_a_tag)
+        new_a_tag.append(soup.new_tag('br'))
+    # self.wfile.write(soup.prettify())
+    return HttpResponse(soup.prettify())
 
 
 def db(request):
