@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from django.shortcuts import render
 from django.http import HttpResponse
 from hello.results_parser import ResultsParser
-from homepage import get_years_from_homepage
+from homepage import get_years_from_homepage, get_html_for_year
 from .models import Greeting
 
 # Create your views here.
@@ -39,5 +39,7 @@ def db(request):
     return render(request, 'db.html', {'greetings': greetings})
 
 def year(request, year):
-    return HttpResponse('handling year: '+str(year))
+    # return HttpResponse('handling year: '+str(year))
+    # self.wfile.write(self.get_html_for_year(self.path[1:]))
+    return HttpResponse('handling year: '+get_html_for_year(year))
 
