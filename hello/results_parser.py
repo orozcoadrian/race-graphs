@@ -20,4 +20,4 @@ class ResultsParser(object):
         # for i,line in enumerate(lines):
         #     print(str(i)+' '+line)
 
-        # soup = BeautifulSoup(open(filename))
+        soup = BeautifulSoup(html)
