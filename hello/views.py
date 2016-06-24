@@ -1,6 +1,8 @@
+from bs4 import BeautifulSoup
 from django.shortcuts import render
 from django.http import HttpResponse
 from hello.results_parser import ResultsParser
+from homepage import get_years_from_homepage
 from .models import Greeting
 
 # Create your views here.
@@ -15,7 +17,10 @@ def index(request):
     # r = requests.get('http://httpbin.org/status/418')
     # print r.text
     # return HttpResponse('<pre>' + r.text + '</pre>')
-    return HttpResponse('Hello from Python!')
+    soup = BeautifulSoup()
+
+    years = get_years_from_homepage()
+    return HttpResponse('Hello from Python! '+str(years))
 
 
 def db(request):
