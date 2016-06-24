@@ -13,4 +13,6 @@ urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
     url(r'^db', hello.views.db, name='db'),
     url(r'^admin/', include(admin.site.urls)),
+    # ex: /polls/5/
+    url(r'^(?P<year>[0-9]+)/$', hello.views.year, name='year'),
 ]

@@ -38,3 +38,6 @@ def db(request):
 
     return render(request, 'db.html', {'greetings': greetings})
 
+def year(request):
+    return HttpResponse('handling year: '+str(year))
+
