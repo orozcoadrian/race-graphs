@@ -10,6 +10,7 @@ def index(request):
     # return HttpResponse('Hello from Python!')
     # return render(request, 'index.html' )
     resultsParser = ResultsParser()
+    resultsModel = resultsParser.parse('http://cfrsolo2.com/2016/04-17-16-brooksville_fin.htm')
     return render(request, 'adrian0.html')
     # r = requests.get('http://httpbin.org/status/418')
     # print r.text
