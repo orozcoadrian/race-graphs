@@ -2,7 +2,6 @@ from django.shortcuts import render
 
 from hello.results_parser import ResultsParser
 from .models import Greeting
-from bs4 import BeautifulSoup
 
 # Create your views here.
 
