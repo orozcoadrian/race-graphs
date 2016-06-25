@@ -2,6 +2,7 @@ from urllib2 import urlopen
 
 import requests
 from bs4 import BeautifulSoup
+from bs4 import NavigableString
 
 
 
@@ -31,7 +32,7 @@ def get_years_from_homepage():
     return years
 
 
-def get_html_for_year(self, year):
+def get_html_for_year(year):
     r = requests.get('http://cfrsolo2.com/' + year + '/index.php')
     soup = BeautifulSoup(
         r.text)  # self.wfile.write(r.content.replace('<th width="200">Raw</th>', '<th width="200">Raw</th><th width="200">viz</th>'))
