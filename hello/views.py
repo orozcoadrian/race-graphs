@@ -41,5 +41,5 @@ def db(request):
 def year(request, year):
     # return HttpResponse('handling year: '+str(year))
     # self.wfile.write(self.get_html_for_year(self.path[1:]))
-    return HttpResponse('handling year: '+get_html_for_year(year))
+    return HttpResponse('handling year: '+str(year)+'<br>'+get_html_for_year(year))
 
