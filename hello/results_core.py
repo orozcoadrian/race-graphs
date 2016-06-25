@@ -52,7 +52,7 @@ def adrian_html_escape2(text):
 
 import sys
 from bs4 import BeautifulSoup
-import tabulate
+# import tabulate
 
 
 def get_unique_cats(records):
