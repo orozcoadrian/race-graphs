@@ -1,3 +1,5 @@
+from urllib2 import HTTPError
+
 from bs4 import BeautifulSoup
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -49,25 +51,26 @@ def path(request, path):
     # self.wfile.write(self.get_html_for_year(self.path[1:]))
     # return HttpResponse('handling year: '+str(year)+'<br>'+get_html_for_year(year))
     resultsParser = ResultsParser()
-    # try:
-    resultsModel = resultsParser.parse('http://cfrsolo2.com/' + path[4:])
-    records = resultsModel.records
+    try:
+        resultsModel = resultsParser.parse('http://cfrsolo2.com/' + path[4:])
+        records = resultsModel.records
 
-    cats = get_unique_cats(records)  # ['Novice', 'Street Modified', 'H Street']
-    html_str = get_graphs_out_html(resultsModel)
-    # print(cats)
-    # bs = BeautifulSoup()
+        cats = get_unique_cats(records)  # ['Novice', 'Street Modified', 'H Street']
+        html_str = get_graphs_out_html(resultsModel)
+        # print(cats)
+        # bs = BeautifulSoup()
 
-    # tag.append(new_string)
-    # bs.append(NavigableString("handling request for: "+self.path))
-    # bs.append(NavigableString("categories num: "+str(len(cats))))
-    # bs.append(html_str)
-    # self.wfile.write(html_str)
-    return HttpResponse(html_str)
-    # except HTTPError, e:
-    #     print(e.code)
-    #     print(e.msg)
-    #     # print(e.headers)
-    #     # print(e.fp.read())
-    #     self.wfile.write('error: ' + str(e.code) + '; ' + e.msg)
+        # tag.append(new_string)
+        # bs.append(NavigableString("handling request for: "+self.path))
+        # bs.append(NavigableString("categories num: "+str(len(cats))))
+        # bs.append(html_str)
+        # self.wfile.write(html_str)
+        return HttpResponse(html_str)
+    except HTTPError, e:
+        print(e.code)
+        print(e.msg)
+        # print(e.headers)
+        # print(e.fp.read())
+        # self.wfile.write('error: ' + str(e.code) + '; ' + e.msg)
+        return HttpResponse('error: ' + str(e.code) + '; ' + e.msg)
 
