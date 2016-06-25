@@ -43,3 +43,8 @@ def year(request, year):
     # self.wfile.write(self.get_html_for_year(self.path[1:]))
     return HttpResponse('handling year: '+str(year)+'<br>'+get_html_for_year(year))
 
+def path(request, path):
+    return HttpResponse('handling path: '+str(path))
+    # self.wfile.write(self.get_html_for_year(self.path[1:]))
+    # return HttpResponse('handling year: '+str(year)+'<br>'+get_html_for_year(year))
+
