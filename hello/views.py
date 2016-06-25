@@ -50,7 +50,7 @@ def path(request, path):
     # return HttpResponse('handling year: '+str(year)+'<br>'+get_html_for_year(year))
     resultsParser = ResultsParser()
     # try:
-    resultsModel = resultsParser.parse('http://cfrsolo2.com' + path)
+    resultsModel = resultsParser.parse('http://cfrsolo2.com/' + path)
     records = resultsModel.records
 
     cats = get_unique_cats(records)  # ['Novice', 'Street Modified', 'H Street']
