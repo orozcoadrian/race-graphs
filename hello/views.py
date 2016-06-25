@@ -22,7 +22,13 @@ def index(request):
     # return HttpResponse('<pre>' + r.text + '</pre>')
     soup = BeautifulSoup()
 
+    new_img_tag = soup.new_tag("img", style='position: absolute; top: 0; right: 0; border: 0;')
+    new_a_tag = soup.new_tag("a", href='https://github.com/orozcoadrian/race-graphs')
+    new_a_tag.append(new_img_tag)
+    soup.append(new_a_tag)
+
     years = get_years_from_homepage()
+
     for year in years:
         new_a_tag = soup.new_tag("a", href=year)
         new_a_tag.string = year
