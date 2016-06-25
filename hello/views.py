@@ -50,20 +50,20 @@ def path(request, path):
     # return HttpResponse('handling year: '+str(year)+'<br>'+get_html_for_year(year))
     resultsParser = ResultsParser()
     # try:
-        resultsModel = resultsParser.parse('http://cfrsolo2.com' + path)
-        records = resultsModel.records
+    resultsModel = resultsParser.parse('http://cfrsolo2.com' + path)
+    records = resultsModel.records
 
-        cats = get_unique_cats(records)  # ['Novice', 'Street Modified', 'H Street']
-        html_str = get_graphs_out_html(resultsModel)
-        # print(cats)
-        # bs = BeautifulSoup()
+    cats = get_unique_cats(records)  # ['Novice', 'Street Modified', 'H Street']
+    html_str = get_graphs_out_html(resultsModel)
+    # print(cats)
+    # bs = BeautifulSoup()
 
-        # tag.append(new_string)
-        # bs.append(NavigableString("handling request for: "+self.path))
-        # bs.append(NavigableString("categories num: "+str(len(cats))))
-        # bs.append(html_str)
-        # self.wfile.write(html_str)
-        return HttpResponse(html_str)
+    # tag.append(new_string)
+    # bs.append(NavigableString("handling request for: "+self.path))
+    # bs.append(NavigableString("categories num: "+str(len(cats))))
+    # bs.append(html_str)
+    # self.wfile.write(html_str)
+    return HttpResponse(html_str)
     # except HTTPError, e:
     #     print(e.code)
     #     print(e.msg)
